@@ -17,7 +17,17 @@ class Program
             UserChoice = Console.ReadLine();
 
             if (UserChoice == "1"){
-                newJournal.AddEntry();
+                Console.WriteLine("Please select one of the follow types of prompts:");
+                Console.WriteLine("1. Reflective");
+                Console.WriteLine("2. Mindset");
+                Console.WriteLine("3. Grattitude");
+                Console.WriteLine("4. Goals");
+                Console.WriteLine("5. Fun");
+                Console.WriteLine("6. Morning");
+                Console.WriteLine("7. Evening");
+                Console.Write("Which kind of prompt would you like to respond to?");
+                string promptType = Console.ReadLine();
+                newJournal.AddEntry(promptType);
             } else if (UserChoice == "2"){
                 newJournal.DisplayEntries();
             } else if (UserChoice == "3"){

@@ -2,19 +2,18 @@ using System.ComponentModel.DataAnnotations;
 using System.IO;
 
 class Journal{
-    List<Entry> Entries = new List<Entry>();
+    List<Entry> _entries = new List<Entry>();
     public Journal(){
-
+        
     }
     public void DisplayEntries(){
-        foreach (Entry entry in Entries){
-            Console.WriteLine(entry.date);
-            Console.Write(entry.prompt);
-            Console.WriteLine(entry.userEntry);
+        foreach (Entry entry in _entries){
+            Console.WriteLine($"Date: {entry._date} - Prompt: {entry._prompt}");
+            Console.WriteLine(entry._userEntry);
         }
     }
-    public void LoadEntries(string FileName){
-        string[] lines = System.IO.File.ReadAllLines(FileName);
+    public void LoadEntries(string _fileName){
+        string[] lines = System.IO.File.ReadAllLines(_fileName);
 
         foreach (string line in lines) {
             string[] parts = line.Split(";");
@@ -23,26 +22,28 @@ class Journal{
             string prompt = parts[1];
             string userEntry = parts[2];
             Entry loadedEntry = new Entry(date, prompt, userEntry);
-            Entries.Add(loadedEntry);
+            _entries.Add(loadedEntry);
             }
+        Console.WriteLine($"{_fileName} was successfully loaded!");
     }
-    public void SaveEntries(string FileName){
-        using (StreamWriter outputFile = new StreamWriter(FileName)){
-            foreach (Entry entry in Entries) {
-                string entryString = $"{entry.date}; {entry.prompt}; {entry.userEntry}";
+    public void SaveEntries(string _fileName){
+        using (StreamWriter outputFile = new StreamWriter(_fileName)){
+            foreach (Entry entry in _entries) {
+                string entryString = $"{entry._date}; {entry._prompt}; {entry._userEntry}";
                 outputFile.WriteLine(entryString);
             }
         }
+        Console.WriteLine($"Journal was successfully saved to {_fileName}.");
     }
-    public void AddEntry(){
-        PromptGenerator newPromptGenerator = new PromptGenerator();
-        string newPrompt = newPromptGenerator.getPrompt();
+    public void AddEntry(string promptType){
+        PromptGenerator newPromptGenerator = new PromptGenerator(promptType);
+        string newPrompt = newPromptGenerator.GetPrompt();
         Console.WriteLine(newPrompt);
         Console.Write("> ");
         string userEntry = Console.ReadLine();
         DateTime theCurrentTime = DateTime.Now;
         string dateText = theCurrentTime.ToShortDateString();
         Entry newEntry = new Entry(dateText, newPrompt, userEntry);
-        Entries.Add(newEntry);
+        _entries.Add(newEntry);
     }
 }
