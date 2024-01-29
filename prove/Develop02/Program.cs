@@ -25,7 +25,7 @@ class Program
                 Console.WriteLine("5. Fun");
                 Console.WriteLine("6. Morning");
                 Console.WriteLine("7. Evening");
-                Console.Write("Which kind of prompt would you like to respond to?");
+                Console.Write("Which kind of prompt would you like to respond to? ");
                 string promptType = Console.ReadLine();
                 newJournal.AddEntry(promptType);
             } else if (UserChoice == "2"){

@@ -12,32 +12,25 @@ class PromptGenerator{
         switch (_typePrompt)
         {
             case "1":
-                Console.WriteLine("Reflective");
                 lines = System.IO.File.ReadAllLines("reflectiveprompts.txt");
                 break;
             case "2":
-                Console.WriteLine("Mindset");
-                lines = System.IO.File.ReadAllLines("mindsetprompts.txt");
+                lines = System.IO.File.ReadAllLines("mindestprompts.txt");
                 break;
             case "3":
-                Console.WriteLine("Grattitude");
                 lines = System.IO.File.ReadAllLines("gratitudeprompts.txt");
                 break;
             case "4":
-                Console.WriteLine("Goals");
                 lines = System.IO.File.ReadAllLines("goalprompts.txt");
                 break;
             case "5":
-                Console.WriteLine("Fun");
                 lines = System.IO.File.ReadAllLines("funprompts.txt");
                 break;
             case "6":
-                Console.WriteLine("Morning");
                 lines = System.IO.File.ReadAllLines("morningprompts.txt");
                 break;
             case "7":
-                Console.WriteLine("Evening");
-                lines = System.IO.File.ReadAllLines("eveningprompts");
+                lines = System.IO.File.ReadAllLines("eveningprompts.txt");
                 break;
         }
         foreach (string line in lines){
