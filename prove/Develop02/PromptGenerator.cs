@@ -32,6 +32,10 @@ class PromptGenerator{
             case "7":
                 lines = System.IO.File.ReadAllLines("eveningprompts.txt");
                 break;
+            default:
+                Console.WriteLine("Sorry I don't recognize that! I will choose one for you!");
+                lines = System.IO.File.ReadAllLines("funprompts.txt");
+                break;
         }
         foreach (string line in lines){
             _prompts.Add(line);
