@@ -8,5 +8,4 @@ class Entry{
         _prompt = GeneratedPrompt;
         _userEntry = response;
     }
-
 }
