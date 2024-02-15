@@ -28,5 +28,6 @@ class Program
         } while (quit != "quit" && scripture.IsCompletelyHidden() == false);
         Console.Clear();
         Console.WriteLine(scripture.GetRenderedText());
+        Console.ReadLine();
     }
 }
