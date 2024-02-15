@@ -48,11 +48,11 @@ class Word{
         _word = newString;
         _isHidden = true;
     }
-    public string Show(){
+    private string Show(){
         return _word;
     }
     public string GetRenderedText(){
-        string renderedString = _word + " ";
+        string renderedString = Show() + " ";
         return renderedString;
     }
     public bool GetIsHidden(){

@@ -1,13 +1,23 @@
 using System;
 using System.Data;
+using System.Xml.Serialization;
 
 class Program
 {
     static void Main(string[] args)
     {
-        string verse = "And if men come unto me I will show unto them their weakness. I give unto men weakness that they may be humble; and my grace is sufficient for all men that humble themselves before me; for if they humble themselves before me, and have faith in me, then will I make weak things become strong unto them.";
-        Reference reference = new Reference("Ether", 12, 27);
-        Scripture scripture = new Scripture(reference, verse);
+        Console.WriteLine("Please Choose a Scripture to memorize!");
+        Console.WriteLine("1. Ether 12:27");
+        Console.WriteLine("2. 1 Nephi 11:16-17");
+        Console.WriteLine("3. Alma 7:11-13");
+        Console.WriteLine("4. Alma 32:27");
+        Console.WriteLine("5. Ether 12:4");
+        Console.WriteLine("6. Moroni 10:3-5");
+        Console.WriteLine("7. 2 Nephi 26:23-24");
+        string userChoice = Console.ReadLine();
+        int intChoice = Int32.Parse(userChoice);
+        VerseChooser chooser = new VerseChooser(intChoice);
+        Scripture scripture = chooser.ChooseVerse();
         string quit;
         do{
             Console.Clear();
