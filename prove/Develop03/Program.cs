@@ -27,7 +27,9 @@ class Program
             scripture.HideWords();
         } while (quit != "quit" && scripture.IsCompletelyHidden() == false);
         Console.Clear();
-        Console.WriteLine(scripture.GetRenderedText());
-        Console.ReadLine();
+        if (scripture.IsCompletelyHidden()){
+            Console.WriteLine(scripture.GetRenderedText());
+            Console.ReadLine();
+            }
     }
 }
