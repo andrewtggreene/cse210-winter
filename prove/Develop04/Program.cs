@@ -12,7 +12,8 @@ class Program
         Console.WriteLine("\t1. Start Breathing Activity");
         Console.WriteLine("\t2. Start Reflecting Activity");
         Console.WriteLine("\t3. Start Listing Activity");
-        Console.WriteLine("\t4. Quit");
+        Console.WriteLine("\t4. Body Scan Activity");
+        Console.WriteLine("\t5. Quit");
         Console.Write("Select a choice from the menu: ");
         userChoice = Console.ReadLine();
         Console.Clear();
@@ -45,11 +46,23 @@ class Program
                 listing.RunListingActivity();
                 break;
             case "4":
+                BodyScan bodyScan = new BodyScan();
+                Console.Write(bodyScan.GetStartingMessage());
+                durationString = Console.ReadLine();
+                duration = Int32.Parse(durationString);
+                if (duration <85){
+                    duration = 85;
+                }
+                bodyScan.SetDuration(duration);
+                Console.Clear();
+                bodyScan.RunBodyScanActivity();
+                break;
+            case "5":
                 break;
             default:
                 Console.WriteLine("Please type a valid selection!");
                 break;
             }
-        } while (userChoice != "4");
+        } while (userChoice != "5");
     }
 }
