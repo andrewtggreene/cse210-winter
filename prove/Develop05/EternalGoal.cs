@@ -1,7 +1,7 @@
 class EternalGoal:Goal{
     public EternalGoal(string name, string descritpion, int points):base(name, descritpion, points){}
     public override string DisplayGoal(){
-        string goalString = "[ ]";
+        string goalString = "[ ] ";
         goalString += _name + " (" + _description + ")";
         return goalString;
     }

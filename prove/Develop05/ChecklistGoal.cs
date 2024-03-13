@@ -7,6 +7,11 @@ class ChecklistGoal: Goal{
         _bonusPoints = bonusPoints;
         _numCompleted = 0;
     }
+    public ChecklistGoal(string name, string descritpion, int points, int bonusPoints, int bonusMark, int numCompleted):base(name, descritpion, points){
+        _bonusMark = bonusMark;
+        _bonusPoints = bonusPoints;
+        _numCompleted = numCompleted;
+    }    
     public override string DisplayGoal(){
         string goalString = "";
         if (_numCompleted >= _bonusMark){

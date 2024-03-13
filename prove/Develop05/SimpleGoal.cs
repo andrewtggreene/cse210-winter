@@ -3,6 +3,9 @@ class SimpleGoal: Goal{
     public SimpleGoal(string name, string descritpion, int points): base(name, descritpion, points){
         _completed = false;
     }
+    public SimpleGoal(string name, string descritpion, int points, bool completed): base(name, descritpion, points){
+        _completed = completed;
+    }
     public override string DisplayGoal(){
         string goalString = "";
         if (_completed){
