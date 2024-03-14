@@ -93,37 +93,23 @@ class User{
         string description;
         string points;
         int pointsInt;
+        Console.Write("What is the name of your goal? ");
+        name = Console.ReadLine();
+        Console.Write("What is a short description of it? ");
+        description = Console.ReadLine();
+        Console.Write("What is the amount of points associated with this goal? ");
+        points = Console.ReadLine();
+        pointsInt = Int32.Parse(points);
         switch(typeOfGoal){
             case "1":
-                Console.Write("What is the name of your goal? ");
-                name = Console.ReadLine();
-                Console.Write("What is a short description of it? ");
-                description = Console.ReadLine();
-                Console.Write("What is the amount of points associated with this goal? ");
-                points = Console.ReadLine();
-                pointsInt = Int32.Parse(points);
                 SimpleGoal simpleGoal = new SimpleGoal(name, description, pointsInt);
                 AddNewGoal(simpleGoal);
                 break;
             case "2":
-                Console.Write("What is the name of your goal? ");
-                name = Console.ReadLine();
-                Console.Write("What is a short description of it? ");
-                description = Console.ReadLine();
-                Console.Write("What is the amount of points associated with this goal? ");
-                points = Console.ReadLine();
-                pointsInt = Int32.Parse(points);
                 EternalGoal eternalGoal = new EternalGoal(name, description, pointsInt);
                 AddNewGoal(eternalGoal);
                 break;
             case "3":
-                Console.Write("What is the name of your goal? ");
-                name = Console.ReadLine();
-                Console.Write("What is a short description of it? ");
-                description = Console.ReadLine();
-                Console.Write("What is the amount of points associated with this goal? ");
-                points = Console.ReadLine();
-                pointsInt = Int32.Parse(points);
                 Console.Write("How many times does this goal need to be accomplished for a bonus? ");
                 string bonusMark = Console.ReadLine();
                 int bonusMarkInt = Int32.Parse(bonusMark);
@@ -135,9 +121,6 @@ class User{
                 break;
         }
     }
-    public string GetTrophyRoad(){
-        return _trophyRoadStatus;
-    }
     public void ViewTrophyRoad(){
         foreach(string trophyRoad in _trophyRoad){
             string[] parts = trophyRoad.Split(":");
@@ -145,7 +128,7 @@ class User{
             if (pointsTillNext > _userPoints){
                 Console.WriteLine($"Level: {parts[0]}---Unlocks at {parts[1]} points---{pointsTillNext - _userPoints} points untill this level!");
             } else {
-                Console.WriteLine($"Level: {parts[0]}---{parts[1]}");
+                Console.WriteLine($"Level: {parts[0]}---Unlocked at {parts[1]}");
             }
         } 
     }

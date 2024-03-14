@@ -21,7 +21,6 @@ class ChecklistGoal: Goal{
         }
         goalString += _name + " (" + _description + ") -- Currently completed: "+_numCompleted+"/"+_bonusMark ;
         return goalString;        
-
     }
     public override int RecordEvent(){
         _numCompleted += 1;
@@ -33,7 +32,7 @@ class ChecklistGoal: Goal{
     }
     public override string GetSaveFormat(){
         string newString = "";
-        newString += $"Eternal Goal:{_name}:{_description}:{_point}:{_bonusPoints}:{_bonusMark}:{_numCompleted}";
+        newString += $"ChecklistGoal:{_name}:{_description}:{_point}:{_bonusPoints}:{_bonusMark}:{_numCompleted}";
         return newString;
     }
 }
