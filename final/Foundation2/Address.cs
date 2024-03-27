@@ -11,10 +11,10 @@ class Address{
     }
     public bool IsUSA(){
         if (_country == "US"){
-        return true;
-    }else {
-        return false;
-    }
+            return true;
+        } else {
+            return false;
+        }
     }
     public string GetAddress(){
         return $"{_streetAddress}, {_city}, {_stateProvince}, {_country}";
