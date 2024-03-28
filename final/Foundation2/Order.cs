@@ -1,5 +1,5 @@
 class Order{
-    private List<Product> _listOfProducts= new List<Product>{};
+    private List<Product> _listOfProducts = new List<Product>{};
     private Customer _customer;
     public Order(Customer customer){
         _customer = customer;
